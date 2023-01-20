@@ -1,12 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     isCartOpen: false,
     cart: [],
     items: [],
-}
+};
 
-export const createSlice = createSlice({
+export const cartSlice = createSlice({
     name: "cart",
     initialState,
     reducers: {
@@ -42,8 +42,8 @@ export const createSlice = createSlice({
 
         setIsCartOpen: (state) => {
             state.isCartOpen = !state.isCartOpen;
-        }
-    }
+        },
+    },
 });
 
 export const {
