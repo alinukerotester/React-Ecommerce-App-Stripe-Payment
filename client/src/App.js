@@ -6,6 +6,7 @@ import {
   useLocation
 } from "react-router-dom";
 import Home from "./scenes/home/Home";
+import ItemDetails from "./scenes/itemDetails/ItemDetails";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -24,6 +25,7 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="item/:itemId" element={<ItemDetails />} />
         </Routes>
       </BrowserRouter>
     </div>
