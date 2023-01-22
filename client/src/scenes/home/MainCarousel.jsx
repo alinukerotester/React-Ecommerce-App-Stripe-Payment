@@ -1,0 +1,1 @@
+// copiaza sau scrie codul . Gata pentru azi
