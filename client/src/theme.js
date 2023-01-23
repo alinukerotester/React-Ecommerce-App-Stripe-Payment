@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 export const shades = {
     primary: {
@@ -10,9 +10,8 @@ export const shades = {
         600: "#000000",
         700: "#000000",
         800: "#000000",
-        900: "#000000"
+        900: "#000000",
     },
-
     secondary: {
         100: "#f7ccd2",
         200: "#ef99a4",
@@ -22,9 +21,8 @@ export const shades = {
         600: "#ab0016",
         700: "#800011",
         800: "#56000b",
-        900: "#2b0006"
+        900: "#2b0006",
     },
-
     neutral: {
         100: "#f5f5f5",
         200: "#ecebeb",
@@ -34,23 +32,23 @@ export const shades = {
         600: "#a6a4a4",
         700: "#7c7b7b",
         800: "#535252",
-        900: "#292929"
+        900: "#292929",
     },
-}
+};
 
 export const theme = createTheme({
     palette: {
         primary: {
-            main: shades.primary[500]
+            main: shades.primary[500],
         },
         secondary: {
-            main: shades.secondary[500]
+            main: shades.secondary[500],
         },
         neutral: {
             dark: shades.neutral[700],
             main: shades.neutral[500],
-            light: shades.neutral[100]
-        }
+            light: shades.neutral[100],
+        },
     },
     typography: {
         fontFamily: ["Fauna One", "sans-serif"].join(","),
