@@ -11,7 +11,30 @@ import { setItems } from "../../state";
 const ShoppingList = () => {
     const dispatch = useDispatch();
     const [value, setValue] = useState('all');
-    const items = useSelector()
-}
+    const items = useSelector((state) => state.cart.items);
+    const isNonMobile = useMediaQuery("(min-width:600px)")
+    console.log("items", items);
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
+    async function getItems() {
+        const items = await fetch(
+            "http://localhost:2000/api/items?populate=image",
+            { method: "GET" }
+        );
+        const itemsJson = await items.json();
+        dispatch(setItems(itemsJson.data));
+    }
+
+    useEffect(() => {
+        getItems();
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+    return (
+        <div>shopping list</div>
+    )
+};
 
 export default ShoppingList;
