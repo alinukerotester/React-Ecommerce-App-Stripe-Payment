@@ -14,9 +14,9 @@ import {
 import { useNavigate } from "react-router-dom";
 
 const FlexBox = styled(Box)`
-display: flex;
-justify-content: space-between;
-align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const CartMenu = () => {
@@ -31,7 +31,7 @@ const CartMenu = () => {
 
     return (
         <Box //overlay
-            display={isCartOpen ? "block" : 'none'}
+            display={isCartOpen ? "block" : "none"}
             backgroundColor="rgba(0, 0, 0, 0.4)"
             position="fixed"
             zIndex={10}
@@ -53,7 +53,7 @@ const CartMenu = () => {
                 <Box padding="30px" overflow="auto" height="100%">
                     {/* HEADER */}
                     <FlexBox mb="15px">
-                        <Typography variant='h3'>SHOPPING BAG ({cart.length})</Typography>
+                        <Typography variant="h3">SHOPPING BAG ({cart.length})</Typography>
                         <IconButton onClick={() => dispatch(setIsCartOpen({}))}>
                             <CloseIcon />
                         </IconButton>
@@ -69,25 +69,24 @@ const CartMenu = () => {
                                             alt={item?.name}
                                             width="123px"
                                             height="164px"
-                                            src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+                                            src={`http://localhost:2000${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
                                         />
                                     </Box>
                                     <Box flex="1 1 60%">
-
                                         {/* ITEM NAME */}
                                         <FlexBox mb="5px">
                                             <Typography fontWeight="bold">
                                                 {item.attributes.name}
                                             </Typography>
-                                            <IconButton onClick={() =>
-                                                dispatch(removeFromCart({ id: item.id }))
-                                            }
+                                            <IconButton
+                                                onClick={() =>
+                                                    dispatch(removeFromCart({ id: item.id }))
+                                                }
                                             >
                                                 <CloseIcon />
                                             </IconButton>
                                         </FlexBox>
                                         <Typography>{item.attributes.shortDescription}</Typography>
-
                                         {/* AMOUNT */}
                                         <FlexBox m="15px 0">
                                             <Box
@@ -136,16 +135,17 @@ const CartMenu = () => {
                                 borderRadius: 0,
                                 minWidth: "100%",
                                 padding: "20px 40px",
-                                m: "20px 0"
+                                m: "20px 0",
                             }}
                             onClick={() => {
                                 navigate("/checkout");
                                 dispatch(setIsCartOpen({}));
                             }}
-                        >CHECKOUT</Button>
+                        >
+                            CHECKOUT
+                        </Button>
                     </Box>
                 </Box>
-
             </Box>
         </Box>
     );
