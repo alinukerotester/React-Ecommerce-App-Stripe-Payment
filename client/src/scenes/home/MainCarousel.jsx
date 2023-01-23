@@ -12,13 +12,12 @@ const importAll = (r) =>
         return acc;
     }, {});
 
-const heroTextureImports = importAll(
+export const heroTextureImports = importAll(
     require.context("../../assets", false, /\.(png|jpe?g|svg)$/)
 );
 
-const MainCarousel () => {
+const MainCarousel = () => {
     const isNonMobile = useMediaQuery("(min-width:600px)");
-
     return (
         <Carousel
             infiniteLoop={true}
@@ -31,7 +30,7 @@ const MainCarousel () => {
                     sx={{
                         position: "absolute",
                         top: "50%",
-                        left: '0',
+                        left: "0",
                         color: "white",
                         padding: "5px",
                         zIndex: "10",
@@ -65,7 +64,7 @@ const MainCarousel () => {
                             width: "100%",
                             height: "700px",
                             objectFit: "cover",
-                            backgroundAttachment: "fixed"
+                            backgroundAttachment: "fixed",
                         }}
                     />
                     <Box
@@ -81,7 +80,7 @@ const MainCarousel () => {
                         margin={isNonMobile ? undefined : "0 auto"}
                         maxWidth={isNonMobile ? undefined : "240px"}
                     >
-                        <Typography color={shades.secondary[200]}>--NEW ITEMS</Typography>
+                        <Typography color={shades.secondary[200]}>-- NEW ITEMS</Typography>
                         <Typography variant="h1">Summer Sale</Typography>
                         <Typography
                             fontWeight="bold"
@@ -94,7 +93,7 @@ const MainCarousel () => {
                 </Box>
             ))}
         </Carousel>
-    )
+    );
 };
 
 export default MainCarousel;
