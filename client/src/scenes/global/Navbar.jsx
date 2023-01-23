@@ -1,16 +1,16 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { Badge, Box, IconButton } from '@mui/material';
+import { useDispatch, useSelector } from "react-redux";
+import { Badge, Box, IconButton } from "@mui/material";
 import {
     PersonOutline,
     ShoppingBagOutlined,
     MenuOutlined,
-    SearchOutlined
-} from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
-import { shades } from '../../theme';
-import { setIsCartOpen } from '../../state';
+    SearchOutlined,
+} from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import { shades } from "../../theme";
+import { setIsCartOpen } from "../../state";
 
-const Navbar = () => {
+function Navbar() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const cart = useSelector((state) => state.cart.cart);
@@ -21,9 +21,9 @@ const Navbar = () => {
             alignItems="center"
             width="100%"
             height="60px"
-            backgroundColor="rgba(255, 255, 0.95)"
+            backgroundColor="rgba(255, 255, 255, 0.95)"
             color="black"
-            posistion="fixed"
+            position="fixed"
             top="0"
             left="0"
             zIndex="1"
@@ -37,10 +37,10 @@ const Navbar = () => {
             >
                 <Box
                     onClick={() => navigate("/")}
-                    sx={{ '&:hover': { cursor: "pointer" } }}
+                    sx={{ "&:hover": { cursor: "pointer" } }}
                     color={shades.secondary[500]}
                 >
-                    ECOMMER ALINUKES
+                    ECOMMER
                 </Box>
                 <Box
                     display="flex"
@@ -65,12 +65,13 @@ const Navbar = () => {
                                 padding: "0 4px",
                                 height: "14px",
                                 minWidth: "13px",
-                            }
+                            },
                         }}
                     >
                         <IconButton
                             onClick={() => dispatch(setIsCartOpen({}))}
-                            sx={{ color: "black" }}>
+                            sx={{ color: "black" }}
+                        >
                             <ShoppingBagOutlined />
                         </IconButton>
                     </Badge>
@@ -78,9 +79,7 @@ const Navbar = () => {
                         <MenuOutlined />
                     </IconButton>
                 </Box>
-
             </Box>
-
         </Box>
     );
 }
